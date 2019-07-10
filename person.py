@@ -23,11 +23,12 @@ class Position:
 class Person:
     ''' Help  '''
 
-    def __init__(self, fname, lname, x=0, y=0):
+    def __init__(self, fname, lname, x=0, y=0, age):
         self.first_name = fname
         self.last_name = lname
         self.position = Position(x, y)
-
+        self.age = age
+        
     def __str__(self):
         return "Person Object: {} position at {}".format(self.full_name(), self.position)
 
