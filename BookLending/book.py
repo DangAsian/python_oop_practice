@@ -27,6 +27,19 @@ class Book:
                 overdue.append(book)
         return overdue
 
+    @classmethod
+    def search(cls, title):
+        title_list = []
+        author = []
+        isbn = []
+        final = []
+        print(title)
+        for book in cls.on_shelf:
+            if book.title == title:
+                title_list.append(book.title)
+
+        return title_list
+
 
     @classmethod
     def browse(cls):
@@ -42,6 +55,8 @@ class Book:
 
 
     def borrow(self):
+        #if self is within loan
+        #return Book is in loan please try another book
         lent_out = self.lent_out()
         if lent_out == False:
             due = Book.current_due_date()
@@ -71,6 +86,14 @@ class Book:
             else:
                 return False
 
+    def renew(self):
+        add_time = 100000
+        print('hi')
+        for book in Book.on_loan:
+            if book == self:
+                print(book.due)
+        return True
+
 
 book1 = Book.create("Dan's book", "Daniel", "129412587")
 book2 = Book.create("Molly's book", "Daniel", "129412587")
@@ -80,6 +103,8 @@ book2 = Book.create("Molly's book", "Daniel", "129412587")
 print(Book.on_shelf)
 print(book1.borrow())
 print(Book.on_shelf)
-
-print(Book.overdue_books())
+print(Book.on_loan)
+print(Book.search("Molly's book"))
+# print(Book.overdue_books())
+# print(book1.renew())
 # print(book1.return_to_library())

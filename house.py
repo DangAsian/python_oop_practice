@@ -1,5 +1,5 @@
 class House:
-    house=[]
+    house = []
 
     @classmethod
     def total_square_feet(cls):
@@ -8,20 +8,21 @@ class House:
             total += room.square_feet()
         return total
 
-#name width length
+# name width length
     @classmethod
     def print_rooms_nicely(cls):
         for room in sorted(cls.house):
             print("{} is {}".format(room.name, room.square_feet()))
 
+
 class Room:
+
     pass
 
     def __init__(self, name, width, length):
         self.name = name
         self.width = width
         self.length = length
-
 
     def __lt__(self, other):
         return self.square_feet() < other.square_feet()

@@ -1,3 +1,5 @@
+import pdb
+
 class Paperboy:
     """mailing game"""
 
@@ -28,6 +30,7 @@ class Paperboy:
             self.earnings += 50 * 0.25
             self.earnings += (num - 50) * 0.5
 
+        pdb.set_trace()
     def report(self):
         return "I'm {}, and I delivered {} papers and I've earned {}".format(self.name, self.experience, self.earnings)
 
